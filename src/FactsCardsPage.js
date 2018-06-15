@@ -11,7 +11,7 @@ class Card extends React.Component {
     render() {
         return (
             <View style={[styles.card, { backgroundColor: this.props.backgroundColor }]}>
-                <Text>{this.props.text}</Text>
+                <Text style={styles.cardText}>{this.props.text}</Text>
             </View>
         )
     }
@@ -36,12 +36,12 @@ export default class FactsCardsPage extends React.Component {
         super(props);
         this.state = {
             cards: [
-                { text: 'In the UK, it is illegal to ear pies on Christmas!', backgroundColor: 'red' },
-                { text: 'Aubergine', backgroundColor: 'purple' },
-                { text: 'Courgette', backgroundColor: 'green' },
-                { text: 'Blueberry', backgroundColor: 'blue' },
-                { text: 'Umm...', backgroundColor: 'cyan' },
-                { text: 'orange', backgroundColor: 'orange' },
+                { text: 'In the UK, it is illegal to ear pies on Christmas!', backgroundColor: '#274059' },
+                { text: 'Aubergine', backgroundColor: '#274059' },
+                { text: 'Courgette', backgroundColor: '#274059' },
+                { text: 'Blueberry', backgroundColor: '#274059' },
+                { text: 'Umm...', backgroundColor: '#274059' },
+                { text: 'orange', backgroundColor: '#274059' },
             ]
         };
     }
@@ -61,12 +61,11 @@ export default class FactsCardsPage extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View style={styles.cards}>
                     <SwipeCards
                         cards={this.state.cards}
                         renderCard={(cardData) => <Card {...cardData} />}
                         renderNoMoreCards={() => <NoMoreCards />}
-
+                        loop={true}
                         handleYup={this.handleYup}
                         handleNope={this.handleNope}
                         handleMaybe={this.handleMaybe}
@@ -76,9 +75,8 @@ export default class FactsCardsPage extends React.Component {
                         showMaybe={false}
                         dragY={false}
                     />
-                </View>
                 <View style={styles.info}>
-                    <Text>Metadata about cards will come here</Text>
+                    <Text></Text>
                 </View>
             </View>
         )
@@ -88,28 +86,36 @@ export default class FactsCardsPage extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#1f364d',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: Exponent.Constants.statusBarHeight
     },
     cards: {
-        flex: 0.8,
+        flex: 0.85,
         width: '90%',
-        margin: 10,
     },
     info: {
-        flex: 0.2,
-        backgroundColor: 'green',
-        width: '100%',
+        flex: 0.15,
+        margin: 10,
+        backgroundColor: '#274059',
+        width: '95%',
     },
     noMoreCardsText: {
         fontSize: 22,
     },
     card: {
-        width: 400,
         height: 400,
+        width: 380,
         justifyContent: 'center',
         alignItems: 'center',
     },
+    cardText: {
+        flex: 1,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        textAlignVertical: 'center',
+        color: '#fff',
+        fontSize: 20,
+        lineHeight: 30,
+    }
 });
