@@ -2,6 +2,13 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { fontAssets } from './helpers';
 import { FactsCardsPage } from './src';
+import { 
+    ThemeProvider
+} from 'react-native-material-ui';
+
+const uiTheme = {
+	fontFamily: 'source_sans_pro',
+};
 
 export default class App extends React.Component {
 	state = {
@@ -27,7 +34,9 @@ export default class App extends React.Component {
 		}
 
 		return (
-			<FactsCardsPage />
+			<ThemeProvider uiTheme={uiTheme}>
+				<FactsCardsPage />
+			</ThemeProvider>
 		);
 	}
 }

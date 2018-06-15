@@ -1,18 +1,20 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Exponent from 'expo';
 import SwipeCards from 'react-native-swipe-cards';
+import { 
+    Card
+} from 'react-native-material-ui';
 
-class Card extends React.Component {
+class MyCard extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <View style={[styles.card, { backgroundColor: this.props.backgroundColor }]}>
+            <Card style={{ container: styles.card}}>
                 <Text style={styles.cardText}>{this.props.text}</Text>
-            </View>
+            </Card>
         )
     }
 }
@@ -36,12 +38,13 @@ export default class FactsCardsPage extends React.Component {
         super(props);
         this.state = {
             cards: [
-                { text: 'In the UK, it is illegal to ear pies on Christmas!', backgroundColor: '#274059' },
-                { text: 'Aubergine', backgroundColor: '#274059' },
-                { text: 'Courgette', backgroundColor: '#274059' },
-                { text: 'Blueberry', backgroundColor: '#274059' },
-                { text: 'Umm...', backgroundColor: '#274059' },
-                { text: 'orange', backgroundColor: '#274059' },
+                { text: 'Apparently we had reached a great height in the atmosphere, for the sky was a dead black, and the stars had ceased to twinkle. By the same illusion which lifts the horizon of the sea to the level of the spectator on a hillside'},
+                { text: 'In the UK, it is illegal to ear pies on Christmas!'},
+                { text: 'Samsung tests phone durability with a butt-shaped robot.'},
+                { text: 'McDonald’s once made bubblegum-flavored broccoli.'},
+                { text: 'Some fungi create zombies, then control their minds.'},
+                { text: 'The first oranges weren’t orange.'},
+                { text: 'Scotland has 421 words for “snow”.'},
             ]
         };
     }
@@ -61,9 +64,11 @@ export default class FactsCardsPage extends React.Component {
     render() {
         return (
             <View style={styles.container}>
+                <View
+                    style={styles.swipeCardsContainer}>
                     <SwipeCards
                         cards={this.state.cards}
-                        renderCard={(cardData) => <Card {...cardData} />}
+                        renderCard={(cardData) => <MyCard {...cardData} />}
                         renderNoMoreCards={() => <NoMoreCards />}
                         loop={true}
                         handleYup={this.handleYup}
@@ -74,9 +79,10 @@ export default class FactsCardsPage extends React.Component {
                         showNope={false}
                         showMaybe={false}
                         dragY={false}
-                    />
+                        />
+                </View>
                 <View style={styles.info}>
-                    <Text></Text>
+                    <Text style={{fontFamily: 'roboto_bold'}}></Text>
                 </View>
             </View>
         )
@@ -90,9 +96,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
     },
-    cards: {
-        flex: 0.85,
-        width: '90%',
+    swipeCardsContainer: {
+        flex: 0.80,
+        width: '100%',
     },
     info: {
         flex: 0.15,
@@ -104,18 +110,21 @@ const styles = StyleSheet.create({
         fontSize: 22,
     },
     card: {
-        height: 400,
-        width: 380,
+        width: '90%',
+        height: '85%',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#274059',
+        padding: 15,
+        marginTop: 40,
     },
     cardText: {
         flex: 1,
         textAlign: 'center',
-        fontWeight: 'bold',
         textAlignVertical: 'center',
         color: '#fff',
-        fontSize: 20,
+        fontSize: 25,
         lineHeight: 30,
+        fontFamily: 'source_sans_pro_bold',
     }
 });
