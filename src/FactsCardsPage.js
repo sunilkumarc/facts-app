@@ -26,9 +26,9 @@ class NoMoreCards extends React.Component {
 
     render() {
         return (
-            <View style={styles.noMoreCards}>
-                <Text>No more cards</Text>
-            </View>
+            <Card style={{ container: styles.card}}>
+                <Text style={styles.cardText}>No more cards today.</Text>
+            </Card>
         )
     }
 }
@@ -43,7 +43,7 @@ export default class FactsCardsPage extends React.Component {
                 { text: 'Samsung tests phone durability with a butt-shaped robot.'},
                 { text: 'McDonald’s once made bubblegum-flavored broccoli.'},
                 { text: 'Some fungi create zombies, then control their minds.'},
-                { text: 'The first oranges weren’t orange.'},
+                { text: 'The first oranges weren’t orange...'},
                 { text: 'Scotland has 421 words for “snow”.'},
             ]
         };
@@ -70,7 +70,6 @@ export default class FactsCardsPage extends React.Component {
                         cards={this.state.cards}
                         renderCard={(cardData) => <MyCard {...cardData} />}
                         renderNoMoreCards={() => <NoMoreCards />}
-                        loop={true}
                         handleYup={this.handleYup}
                         handleNope={this.handleNope}
                         handleMaybe={this.handleMaybe}
