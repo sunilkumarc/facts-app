@@ -4,6 +4,10 @@ import SwipeCards from 'react-native-swipe-cards';
 import { 
     Card
 } from 'react-native-material-ui';
+import {
+    Entypo,
+    Feather
+} from '@expo/vector-icons';
 
 class MyCard extends React.Component {
     constructor(props) {
@@ -66,6 +70,7 @@ export default class FactsCardsPage extends React.Component {
             <View style={styles.container}>
                 <View
                     style={styles.swipeCardsContainer}>
+                    <Entypo name='grid' style={styles.gridButton} size={40} />
                     <SwipeCards
                         cards={this.state.cards}
                         renderCard={(cardData) => <MyCard {...cardData} />}
@@ -98,6 +103,8 @@ const styles = StyleSheet.create({
     swipeCardsContainer: {
         flex: 0.80,
         width: '100%',
+        // borderWidth: 1,
+        // borderColor: '#fff',
     },
     info: {
         flex: 0.15,
@@ -110,12 +117,12 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '90%',
-        height: '85%',
+        height: '90%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#274059',
         padding: 15,
-        marginTop: 40,
+        marginTop: 10,
     },
     cardText: {
         flex: 1,
@@ -125,5 +132,14 @@ const styles = StyleSheet.create({
         fontSize: 25,
         lineHeight: 30,
         fontFamily: 'source_sans_pro_bold',
+    },
+    gridButton: {
+        color: '#274059',
+        marginLeft: '2%',
+        marginTop: '2%',
+        // borderWidth: 1,
+        // borderColor: '#fff',
+        marginTop: '5%',
+        paddingLeft: '1%',
     }
 });

@@ -1,5 +1,2 @@
-import FactsCardsPage from './FactsCardsPage.js'
-
-export {
-    FactsCardsPage
-};
+export * from './Cards';
+export * from './Options';
