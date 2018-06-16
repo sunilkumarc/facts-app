@@ -6,8 +6,10 @@ import {
 } from 'react-native-material-ui';
 import {
     Entypo,
-    Feather
 } from '@expo/vector-icons';
+import {
+    NoMoreCards
+} from '../../src';
 
 class MyCard extends React.Component {
     constructor(props) {
@@ -18,20 +20,6 @@ class MyCard extends React.Component {
         return (
             <Card style={{ container: styles.card}}>
                 <Text style={styles.cardText}>{this.props.text}</Text>
-            </Card>
-        )
-    }
-}
-
-class NoMoreCards extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <Card style={{ container: styles.card}}>
-                <Text style={styles.cardText}>No more cards today.</Text>
             </Card>
         )
     }
@@ -70,7 +58,11 @@ export default class FactsCardsPage extends React.Component {
             <View style={styles.container}>
                 <View
                     style={styles.swipeCardsContainer}>
-                    <Entypo name='grid' style={styles.gridButton} size={40} />
+                    <Entypo 
+                        name='grid' 
+                        style={styles.gridButton}
+                        size={50}
+                        onPress={() => this.props.navigation.navigate('Options')} />
                     <SwipeCards
                         cards={this.state.cards}
                         renderCard={(cardData) => <MyCard {...cardData} />}
@@ -103,8 +95,6 @@ const styles = StyleSheet.create({
     swipeCardsContainer: {
         flex: 0.80,
         width: '100%',
-        // borderWidth: 1,
-        // borderColor: '#fff',
     },
     info: {
         flex: 0.15,
@@ -117,7 +107,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '90%',
-        height: '90%',
+        height: '95%',
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#274059',
@@ -137,8 +127,6 @@ const styles = StyleSheet.create({
         color: '#274059',
         marginLeft: '2%',
         marginTop: '2%',
-        // borderWidth: 1,
-        // borderColor: '#fff',
         marginTop: '5%',
         paddingLeft: '1%',
     }

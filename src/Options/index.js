@@ -1,4 +1,4 @@
-import OptionsPage from './OptionsPage.js'
+import OptionsPage from './OptionsPage'
 
 export {
     OptionsPage

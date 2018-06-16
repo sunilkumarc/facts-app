@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { fontAssets } from './helpers';
-import { FactsCardsPage } from './src';
+import { AppNavigator } from './src';
 import { 
     ThemeProvider
 } from 'react-native-material-ui';
@@ -35,7 +35,7 @@ export default class App extends React.Component {
 
 		return (
 			<ThemeProvider uiTheme={uiTheme}>
-				<FactsCardsPage />
+				<AppNavigator />
 			</ThemeProvider>
 		);
 	}
